@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InetSoft Repository: {{path}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #fff;
+    }
+
+    table {
+      border: none;
+      padding: 0;
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 2px;
+    }
+
+    td.filename {
+      padding-right: 14em;
+    }
+
+    td.size {
+      padding-left: 4em;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>{{path}}</h1>
+  <hr/>
+  <main>
+    <pre>
+      <table>
+        {{#showParent}}
+        <tr>
+          <td class="filename" colspan="3"><a href="../">../</a></td>
+        </tr>
+        {{/showParent}}
+        {{#files}}
+        <tr>
+          <td class="filename"><a href="{{link}}" title="{{label}}">{{label}}</a></td>
+          <td>{{date}}</td>
+          <td class="size">{{size}}</td>
+        </tr>
+        {{/files}}
+      </table>
+    </pre>
+  </main>
+  <hr/>
+</header>
+</body>
+</html>
