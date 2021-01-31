@@ -197,3 +197,4 @@ cache/
 repositories/
 maven.yaml
 maven.pid
+gradle.properties

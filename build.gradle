@@ -47,6 +47,11 @@ test {
 jib {
   to {
     image 'jasonshobe/simple-maven-server'
+    tags = ["$project.version"]
+    auth {
+      username = dockerUsername
+      password = dockerPassword
+    }
   }
   container {
     args = ['start']

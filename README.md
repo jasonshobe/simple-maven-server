@@ -145,8 +145,9 @@ Note that this application requires Java 11.
 
 ## Docker
 
-A Docker image named `jasonshobe/maven-simple-server` is available
-for this application in Docker Hub.
+A Docker image named
+[`jasonshobe/maven-simple-server`](https://hub.docker.com/r/jasonshobe/simple-maven-server)
+is available for this application in Docker Hub.
 
 The only difference from the default configuration documented
 earlier is that `maven.storage.directory` is configured to be
