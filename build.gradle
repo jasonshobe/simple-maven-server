@@ -65,8 +65,8 @@ jib {
     image 'jasonshobe/simple-maven-server'
     tags = ["$project.version", "${getProjectMajorVersion()}"]
     auth {
-      username = dockerUsername
-      password = dockerPassword
+      username = project.hasProperty('dockerUsername') ? project.property('dockerUsername') : System.getenv('DOCKERHUB_USER')
+      password = project.hasProperty('dockerPassword') ? project.property('dockerPassword') : System.getenv('DOCKERHUB_PASSWORD')
     }
   }
   container {
