@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import software.amazon.awssdk.core.sync.RequestBody;
@@ -49,6 +50,7 @@ public class S3Storage implements Storage {
 
   private final String bucket;
   private final Set<String> repositories;
+  private final Supplier<S3Client> clientSupplier;
 
   /**
    * Creates a new instance of {@code S3Storage}.
@@ -57,8 +59,20 @@ public class S3Storage implements Storage {
    * @param repositories the repository names.
    */
   public S3Storage(String bucket, Set<String> repositories) {
+    this(bucket, repositories, () -> S3Client.builder().build());
+  }
+
+  /**
+   * Creates a new instance of {@code S3Storage}.
+   *
+   * @param bucket         the name of the S3 bucket.
+   * @param repositories   the repository names.
+   * @param clientSupplier a function that supplies the S3 client.
+   */
+  S3Storage(String bucket, Set<String> repositories, Supplier<S3Client> clientSupplier) {
     this.bucket = bucket;
     this.repositories = repositories;
+    this.clientSupplier = clientSupplier;
 
     try (S3Client client = createClient()) {
       ListObjectsRequest listRequest = ListObjectsRequest.builder()
@@ -178,7 +192,7 @@ public class S3Storage implements Storage {
    * @return a new client.
    */
   private S3Client createClient() {
-    return S3Client.builder().build();
+    return clientSupplier.get();
   }
 
   /**

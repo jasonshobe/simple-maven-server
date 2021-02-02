@@ -1,0 +1,18 @@
+maven:
+  storage:
+    s3:
+      enabled: false
+    directory: repositories
+    cache: cache
+  port: 8080
+  repositories:
+    - releases
+    - snapshots
+  users:
+    - name: admin
+      password: admin
+  proxies:
+    - name: public
+      repositories:
+        - releases
+        - snapshots

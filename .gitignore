@@ -193,8 +193,8 @@ gradle-app.setting
 
 # End of https://www.toptal.com/developers/gitignore/api/gradle,intellij+all,eclipse,netbeans,code
 
-cache/
-repositories/
-maven.yaml
-maven.pid
-gradle.properties
+/cache/
+/repositories/
+/maven.yaml
+/maven.pid
+/gradle.properties
