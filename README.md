@@ -1,5 +1,10 @@
 # Simple Maven Server
 
+[![Build Status](https://github.com/jasonshobe/simple-maven-server/workflows/build/badge.svg)]()
+[![GPL v3](https://img.shields.io/github/license/jasonshobe/simple-maven-server)]()
+![GitHub Release](https://img.shields.io/github/v/release/jasonshobe/simple-maven-server)
+![Docker Image Version](https://img.shields.io/docker/v/jasonshobe/simple-maven-server?label=docker)
+
 This application is a very simple, lightweight Maven repository
 server. It is suitable for smaller private repositories.
 

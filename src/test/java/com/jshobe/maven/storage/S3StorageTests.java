@@ -318,7 +318,7 @@ class S3StorageTests {
     }
 
     @Test
-    @DisplayName("then existing file should return true")
+    @DisplayName("then existing file should exist")
     void thenExistingFileShouldExist() {
       LocalDateTime modified = LocalDateTime.of(2021, 1, 31, 12, 30, 0);
       Instant modifiedTs = toInstant(modified);
@@ -356,7 +356,7 @@ class S3StorageTests {
     }
 
     @Test
-    @DisplayName("then missing file should exist")
+    @DisplayName("then missing file should not exist")
     void thenMissingFileShouldNotExist() {
       LocalDateTime modified = LocalDateTime.of(2021, 1, 31, 12, 30, 0);
       Instant modifiedTs = toInstant(modified);

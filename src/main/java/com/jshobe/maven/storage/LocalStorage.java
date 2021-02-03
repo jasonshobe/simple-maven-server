@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
+import lombok.SneakyThrows;
 
 /**
  * {@code LocalStorage} is an implementation of {@link Storage} that stores artifacts in a local
@@ -219,8 +220,9 @@ public class LocalStorage implements Storage {
    * @param path the path to the file.
    * @return the creation date and time.
    */
+  @SneakyThrows
   private LocalDateTime getDateCreated(Path path) {
-    Instant created = Instant.ofEpochMilli(path.toFile().lastModified());
+    Instant created = Files.getLastModifiedTime(path).toInstant();
     return LocalDateTime.ofInstant(created, ZoneOffset.systemDefault());
   }
 }
